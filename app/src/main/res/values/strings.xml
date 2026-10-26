@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">ShieldBlock</string>
+    <string name="accessibility_service_description">ShieldBlock uses accessibility services to detect and block restricted applications, prohibited websites, and blacklisted keywords in real-time across all web browsers, incognito sessions, and apps.</string>
+    <string name="device_admin_description">Enables anti-tamper protection, preventing unauthorized uninstallation or circumvention of ShieldBlock.</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_apps">Apps</string>
+    <string name="nav_web">Web &amp; Keywords</string>
+    <string name="nav_strict">Strict Mode</string>
+
+    <!-- Dashboard -->
+    <string name="status_protected">Shield Protection Active</string>
+    <string name="status_disabled">Protection is Paused</string>
+    <string name="status_subtitle_active">Monitoring apps, browser URLs, and screen keywords</string>
+    <string name="status_subtitle_inactive">Tap the switch above to activate real-time protection</string>
+    <string name="permissions_header">System Permissions</string>
+    <string name="perm_accessibility">Accessibility Service (Core Blocker)</string>
+    <string name="perm_overlay">Display Over Other Apps (Overlay)</string>
+    <string name="perm_usage">Usage Access (App Detection)</string>
+    <string name="perm_admin">Device Admin (Anti-Uninstall)</string>
+    <string name="perm_granted">Active</string>
+    <string name="perm_required">Grant Permission</string>
+    <string name="quick_stats">Protection Summary</string>
+
+    <!-- App Blocker -->
+    <string name="apps_header">Blocked Applications</string>
+    <string name="apps_subheader">Select apps to block. When opened, ShieldBlock immediately intercepts them.</string>
+    <string name="add_custom_app">Add Custom Package</string>
+    <string name="package_name_hint">e.g. com.google.android.youtube</string>
+
+    <!-- Web & Keywords -->
+    <string name="web_header">Web &amp; Content Filter</string>
+    <string name="categories_title">Preset Content Categories</string>
+    <string name="categories_subtitle">Enabling a category blocks all associated URLs, domains, and page keywords.</string>
+    <string name="custom_domains_title">Blocked Domains</string>
+    <string name="custom_domains_subtitle">Blocks access to specific web addresses across all browsers.</string>
+    <string name="custom_keywords_title">Blocked Keywords</string>
+    <string name="custom_keywords_subtitle">Blocks any web page or search query matching these terms (works in incognito &amp; with VPN).</string>
+    <string name="add_domain">Add Domain</string>
+    <string name="add_keyword">Add Keyword</string>
+    <string name="domain_hint">e.g. youtube.com or reddit.com</string>
+    <string name="keyword_hint">e.g. shorts, reels, or custom term</string>
+
+    <!-- Strict Mode -->
+    <string name="strict_title">Strict &amp; Anti-Bypass Mode</string>
+    <string name="strict_subtitle">Prevent bypassing via VPN, Incognito, Phone Settings, or App Uninstallation.</string>
+    <string name="lock_settings">Lock Android Settings</string>
+    <string name="lock_settings_desc">Prevents entering Android Settings to disable Accessibility or force-stop ShieldBlock.</string>
+    <string name="block_vpn">Block VPN Applications</string>
+    <string name="block_vpn_desc">Prevents opening VPN apps to bypass DNS or local routing filters.</string>
+    <string name="pin_protection">PIN Protection</string>
+    <string name="pin_protection_desc">Requires a 4-digit PIN to modify rules, disable shield, or change settings.</string>
+    <string name="anti_uninstall">Prevent App Uninstallation</string>
+    <string name="anti_uninstall_desc">Uses Device Administration to lock the uninstall action.</string>
+
+    <!-- Block Overlay Screen -->
+    <string name="blocked_title">Access Blocked</string>
+    <string name="blocked_subtitle">This content has been restricted by ShieldBlock.</string>
+    <string name="blocked_reason_app">Restricted Application: %1$s</string>
+    <string name="blocked_reason_domain">Restricted Domain: %1$s</string>
+    <string name="blocked_reason_keyword">Restricted Keyword / Category: %1$s</string>
+    <string name="btn_exit_home">Return to Home Screen</string>
+    <string name="quote_stay_focused">"Focus is a muscle. Practice saying no to distractions."</string>
+
+    <!-- General -->
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="confirm">Confirm</string>
+</resources>
