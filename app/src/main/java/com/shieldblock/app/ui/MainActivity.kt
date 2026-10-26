@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import com.shieldblock.app.R
 import com.shieldblock.app.data.PreferencesManager
 import com.shieldblock.app.databinding.ActivityMainBinding
+import com.shieldblock.app.service.ForegroundMonitorService
+import com.shieldblock.app.util.PermissionHelper
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,11 +28,20 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             loadFragment(DashboardFragment())
         }
+
+        checkAndStartMonitorService()
     }
 
     override fun onResume() {
         super.onResume()
         updateStatusChip()
+        checkAndStartMonitorService()
+    }
+
+    private fun checkAndStartMonitorService() {
+        if (PermissionHelper.hasUsageStatsPermission(this) && prefs.isMasterProtectionEnabled) {
+            ForegroundMonitorService.start(this)
+        }
     }
 
     private fun setupNavigation() {

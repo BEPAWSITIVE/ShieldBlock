@@ -10,3 +10,5 @@
 *.apk
 *.aab
 /app/build
+
+dist_apks/

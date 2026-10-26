@@ -4,11 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.shieldblock.app.R
 import com.shieldblock.app.data.PreferencesManager
+import com.shieldblock.app.databinding.DialogAccessibilityGuideBinding
 import com.shieldblock.app.databinding.FragmentDashboardBinding
+import com.shieldblock.app.service.ForegroundMonitorService
 import com.shieldblock.app.util.PermissionHelper
 
 class DashboardFragment : Fragment() {
@@ -40,13 +44,16 @@ class DashboardFragment : Fragment() {
         binding.switchMasterProtection.isChecked = prefs.isMasterProtectionEnabled
         binding.switchMasterProtection.setOnCheckedChangeListener { _, isChecked ->
             prefs.isMasterProtectionEnabled = isChecked
+            if (isChecked && PermissionHelper.hasUsageStatsPermission(requireContext())) {
+                ForegroundMonitorService.start(requireContext())
+            }
             updateDashboardState()
         }
     }
 
     private fun setupPermissionButtons() {
         binding.btnGrantAccessibility.setOnClickListener {
-            startActivity(PermissionHelper.getAccessibilitySettingsIntent())
+            showAccessibilityGuideDialog()
         }
 
         binding.btnGrantOverlay.setOnClickListener {
@@ -56,6 +63,27 @@ class DashboardFragment : Fragment() {
         binding.btnGrantUsage.setOnClickListener {
             startActivity(PermissionHelper.getUsageStatsSettingsIntent())
         }
+    }
+
+    private fun showAccessibilityGuideDialog() {
+        val dialogBinding = DialogAccessibilityGuideBinding.inflate(layoutInflater)
+        val dialog = MaterialAlertDialogBuilder(requireContext())
+            .setView(dialogBinding.root)
+            .create()
+
+        dialogBinding.btnOpenAppInfo.setOnClickListener {
+            startActivity(PermissionHelper.getAppDetailsSettingsIntent(requireContext()))
+        }
+
+        dialogBinding.btnOpenAccessibilitySettings.setOnClickListener {
+            startActivity(PermissionHelper.getAccessibilitySettingsIntent())
+        }
+
+        dialogBinding.btnCloseGuide.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     private fun updateDashboardState() {
